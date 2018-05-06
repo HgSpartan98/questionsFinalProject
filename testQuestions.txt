@@ -1,4 +1,3 @@
 What is 2 + 2?
 African or European?
 Chocolate or Vanilla?
-end 

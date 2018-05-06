@@ -22,7 +22,7 @@ def compileQuestions(qSet):
     while True:
         count += 1
         currentLine = infile.readline().strip()
-        if currentLine == "end":
+        if currentLine == "":
             break
         questionList[count] = currentLine
 
