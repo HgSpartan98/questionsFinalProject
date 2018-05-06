@@ -1,18 +1,25 @@
+def analyzeAnswer():
 
-    q = ""
-    print()
-    input_answer = (input(q).lower()).strip()
-    answer = "" 
-    if str(answer) in str(input_answer):
-        print(yes.center(80, '-'))
     else:
-        print(no.center(80, '-'))
+    yes = "CORRECT"
+    no = "INCORRECT"
 
-
+    count = 0
+    
+    while True:
         
-    List  = [["question1", "answer1", ""], ["question2", "answer2"]]
-
-    for q, a, graphic in List:
-        userInput = input(q)
-        print()
-        print("The correct answer is", a)
+        try:
+            count += 1
+            q = dictionaryQ[count]
+            input_answer = (input(q).lower()).strip()
+            answer = dictionaryA[count]
+            
+            if str(answer) in str(input_answer):
+                print(yes.center(80, '-'))
+            else:
+                print(no.center(80, '-'))
+                
+        except KeyError:
+            break 
+            
+analyzeAnswer()
