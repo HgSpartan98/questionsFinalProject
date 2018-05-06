@@ -7,18 +7,23 @@
 
 # This code fetches the indicated question
 
-def question(qNumber, qSet):
-    if readQ != True:
-        qSet += ".txt"
-        infile = open(qSet, "r")
-        for i in range(qNumber):
-            
 
-        textQ = infile.readline()
+def main():
+    compileQuestions("testQuestions")
+    print(questionList)
 
-        infile.closed
+def compileQuestions(qSet):
+    count = 0
+    currentLine = "Stuff"
+    global questionList
+    questionList = {}
+    qSet += ".txt"
+    infile = open(qSet, "r")
+    while True:
+        count += 1
+        currentLine = infile.readline().strip()
+        if currentLine == "":
+            break
+        questionList[count] = currentLine
 
-        global read
-        readQ = True
-
-
+    infile.close()
