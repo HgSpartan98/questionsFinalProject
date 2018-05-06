@@ -1,3 +1,4 @@
-Question 1: What is 2 + 2?
-Question 2: African or European?
-Question 3: Chocolate or Vanilla? 
+What is 2 + 2?
+African or European?
+Chocolate or Vanilla?
+end 
