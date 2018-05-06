@@ -6,6 +6,8 @@
 # check the input for certain keywords, and output different text if the
 # keywords match
 
+# This code provides intro text
+
 def printIntro():
 
     print("The following examination is designed to test the memory of a",
@@ -14,7 +16,3 @@ def printIntro():
           "to the next question.")
     print()
     
-def question(qNumber, qSet):
-    qSet = 
-
-    infile = open(spockQuestions.txt

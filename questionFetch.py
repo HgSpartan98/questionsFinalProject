@@ -5,10 +5,13 @@
 # then call questions from a txt file, ask for user input, and check the input
 # for certain keywords, and output different text if the keywords match
 
+# This code fetches the indicated question
+
 def question(qNumber, qSet):
     if readQ != True:
         qSet += ".txt"
         infile = open(qSet, "r")
+        for i in 
 
         textQ = infile.readline()
 
