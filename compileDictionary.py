@@ -9,21 +9,21 @@
 
 
 def main():
-    compileQuestions("testQuestions")
+    questionList = compileToDictionary("testQuestions.txt")
+    
     print(questionList)
 
-def compileQuestions(qSet):
+def compileToDictionary(fileName):
     count = 0
     currentLine = "Stuff"
-    global questionList
-    questionList = {}
-    qSet += ".txt"
-    infile = open(qSet, "r")
+    dictionary = {}
+    infile = open(fileName, "r")
     while True:
         count += 1
         currentLine = infile.readline().strip()
         if currentLine == "":
             break
-        questionList[count] = currentLine
+        dictionary[count] = currentLine
 
     infile.close()
+    return dictionary
