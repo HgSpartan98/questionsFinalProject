@@ -6,24 +6,26 @@
 # for certain keywords, and output different text if the keywords match
 
 # This code fetches the indicated question
-
+# Call compileToDictionary with the name of the file with the appended file type
+# in a string. It will return a dictionary with each line of the file assigned
+# a number equivalent to its line in the file
 
 def main():
-    compileQuestions("testQuestions")
+    questionList = compileToDictionary("testQuestions.txt")
+    
     print(questionList)
 
-def compileQuestions(qSet):
+def compileToDictionary(fileName):
     count = 0
     currentLine = "Stuff"
-    global questionList
-    questionList = {}
-    qSet += ".txt"
-    infile = open(qSet, "r")
+    dictionary = {}
+    infile = open(fileName, "r")
     while True:
         count += 1
         currentLine = infile.readline().strip()
         if currentLine == "":
             break
-        questionList[count] = currentLine
+        dictionary[count] = currentLine
 
     infile.close()
+    return dictionary
