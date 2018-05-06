@@ -6,7 +6,9 @@
 # for certain keywords, and output different text if the keywords match
 
 # This code fetches the indicated question
-
+# Call compileToDictionary with the name of the file with the appended file type
+# in a string. It will return a dictionary with each line of the file assigned
+# a number equivalent to its line in the file
 
 def main():
     questionList = compileToDictionary("testQuestions.txt")
