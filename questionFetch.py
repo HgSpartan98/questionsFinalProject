@@ -11,7 +11,8 @@ def question(qNumber, qSet):
     if readQ != True:
         qSet += ".txt"
         infile = open(qSet, "r")
-        for i in 
+        for i in range(qNumber):
+            
 
         textQ = infile.readline()
 
