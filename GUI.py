@@ -10,17 +10,21 @@ import ctypes
 
 def GUI():
     user32 = ctypes.windll.user32
-    screensizeX = user32.GetSystemMetrics(0)
-    screensizeY = user32.GetSystemMetrics(1)
-    win = GraphWin("Memory Test", screensizeX, screensizeY)
+    screenSizeX = user32.GetSystemMetrics(0)
+    screenSizeY = user32.GetSystemMetrics(1)
+    winSizeX = (screenSizeX - (screenSizeX / 10))
+    winSizeY = (screenSizeY - (screenSizeY / 10))
+    
+    win = GraphWin("Memory Test", winSizeX, winSizeY)
     color1 = "red"
     color2 = "blue"
 
-    setBackground(color2)
     
-    intro = Text(Point((screensizeX / 2), screensizeY / 10), intro())
-    intro.setSize(10)
-    intro.draw(win)
+    introText = Text(Point((winSizeX / 2), winSizeY / 10), intro())
+    introText.setSize(10)
+    introText.draw(win)
+
+
 
 #    buttonLeft = Rectangle(Point(
     
