@@ -6,15 +6,22 @@
 # for certain keywords, and output different text if the keywords match.
 
 from graphics import *
+import ctypes
 
 def GUI():
-    win = GraphWin("Memory Test", 500, 500)
+    user32 = ctypes.windll.user32
+    screensizeX = user32.GetSystemMetrics(0)
+    screensizeY = user32.GetSystemMetrics(1)
+    win = GraphWin("Memory Test", screensizeX, screensizeY)
+    color1 = "red"
+    color2 = "blue"
 
-    intro = Text(Point(250, 50), intro())
+    setBackground(color2)
+    
+    intro = Text(Point((screensizeX / 2), screensizeY / 10), intro())
     intro.setSize(10)
     intro.draw(win)
 
-    color1 = "Red"
-    buttonLeft = Rectangle(Point(
+#    buttonLeft = Rectangle(Point(
     
-    
+    click = getMouse()
