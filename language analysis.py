@@ -1,6 +1,5 @@
 def analyzeAnswer():
 
-    else:
     yes = "CORRECT"
     no = "INCORRECT"
 

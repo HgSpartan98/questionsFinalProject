@@ -1,5 +1,7 @@
-$2$1905$albert einstein$
-$2$descartes$rene descartes$
-$1$quartz$
-$1$first flight$
-$3$egyptian hieroglyph$egyptian mummification hieroglyph$egyptian mummy$
+$2$2$2$1905$albert einstein$
+$descartes$rene descartes$
+$quartz$
+$first flight$
+$titanic$
+$egyptian hieroglyph$egyptian mummification hieroglyph$egyptian mummy$
+$e = mc^2$e = mc^(2)$
