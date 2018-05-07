@@ -8,11 +8,10 @@
 
 # This code provides intro text
 
-def printIntro():
+def intro():
 
-    print("The following examination is designed to test the memory of a",
-          "previously incapacitated individual. If you answer a question",
-          "incorrectly, you will not be able to go back, but must proceed",
-          "to the next question.")
-    print()
-    
+    message = ("The following examination is designed to test the memory of a",
+               "previously incapacitated individual. If you answer a question",
+               "incorrectly, you will not be able to go back, but must proceed",
+               "to the next question.")
+    return message
