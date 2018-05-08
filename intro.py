@@ -8,9 +8,25 @@
 
 # This code provides intro text
 
-def intro():
-    message = ("The following examination is designed to test the memory of " +
-               "a previously incapacitated individual. If you answer a " +
-               "question incorrectly, you will not be able to go back, " +
-               "but must proceed to the next question.")
+def outputText(instance):
+
+    if instance == 'intro':
+        message = ("The following examination is designed to test the memory of " +
+                   "a previously incapacitated individual. If you answer a " +
+                   "question incorrectly, you will not be able to go back, " +
+                   "but must proceed to the next question.")
+        
+    elif instance == 'trek':
+        message = ("")
+
+    elif instance == 'spock':
+        message = ("The following examination is designed to test the memory of " +
+                   "a previously incapacitated individual. If you answer a " +
+                   "question incorrectly, you will not be able to go back, " +
+                   "but must proceed to the next question.")
+
+    elif instance == 'real':
+        message = ("")
+        
+
     return message
