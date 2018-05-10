@@ -6,8 +6,10 @@ def analyzeAnswer(dictionaryA, answerGiven, numberQ):
 
     
     answers = dictionaryA[numberQ].split("$")
-    
-    if len(answers) == 1:
+
+    if answers[0] == " ":
+        return True
+    elif len(answers) == 1:
         
         if str(answerReal) in str(answerGiven):
             return True
@@ -30,5 +32,4 @@ def analyzeAnswer(dictionaryA, answerGiven, numberQ):
         else:
             return False
         
-            
-        
+

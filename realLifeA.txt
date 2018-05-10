@@ -6,3 +6,4 @@ $titanic$
 $egyptian hieroglyph$egyptian mummification hieroglyph$egyptian mummy$
 $e = mc^2$e = mc^(2)$
 $vaccines$vaccination$immunization$
+$ $
