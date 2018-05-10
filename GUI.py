@@ -8,28 +8,87 @@
 from graphics import *
 import textwrap
 from intro import outputText
+from compileDictionary import compileToDictionary
+
 
 def GUI():
 
-    backColor = (color_rgb(5, 30, 100))
+    # Define Window (win)
+    colorBack = (color_rgb(5, 30, 100))
+    colorButton = "goldenrod"
+    colorText = "white"
+    
 
     win = GraphWin("Memory Test", 1000, 750)
     win.setCoords(-200, -200, 200, 200)
-    rec = Rectangle(Point(-200, -200), Point(200, 200))
-    rec.setFill(color_rgb(5, 30, 100))
-    rec.draw(win)
-    color1 = "red"
-    color2 = "blue"
- 
-    introText = Text(Point(100, 50), outputText("intro"))
-    introText.setSize(12)
-    introText.draw(win)
+    win.setBackground(colorBack)
 
 
-#    buttonLeft = Rectangle(Point(
+    # Define Left Button (buttonLeft) and corresponding text (textLeft)
+    buttonLeft = Rectangle(Point(-150, -100), Point(-50, -50))
+    buttonLeft.setFill(colorBack)
+    buttonLeft.setOutline(colorBack)
+    buttonLeft.draw(win)
+
+    textLeft = Text(Point(-100, -75), "")
+    textLeft.setSize(12)
+    textLeft.draw(win)
+    textLeft.setTextColor(colorText)
+    textLeft.setFace("arial")
+
+    # Define Right Button (buttonRight)
+    buttonRight = Rectangle(Point(150, -100), Point(50, -50))
+    buttonRight.setFill(colorBack)
+    buttonRight.setFill(colorBack)
+    buttonRight.setOutline(colorBack)
+    buttonRight.draw(win)
+
+    textRight = Text(Point(100, -75), "")
+    textRight.setSize(12)
+    textRight.draw(win)
+    textRight.setTextColor(colorText)
+    textRight.setFace("arial")
+
+
+    # Intro Text
+    message = Text(Point(0, 50), outputText("intro"))
+    message.setSize(12)
+    message.draw(win)
+    message.setTextColor(colorText)
+    message.setFace("arial")
+    
+    click = win.getMouse()
+
+    # Choose Test Screen
+    message.setText(outputText("choose"))
+
+    buttonLeft.setFill(colorButton)
+    buttonRight.setFill(colorButton)
+
+    textRight.setText("Real Life")
+    textLeft.setText("Star Trek")
+
+    while True:
+        click = win.getMouse()
+
+        if -150 <= clickX <= -50 and -100 <= clickY <= -50:
+            dictionaryQ = compileToDictionary("starTrekQ.txt")
+            dictionaryA = compileToDictionary("starTrekA.txt")
+        
+        elif -150 <= clickX <= -50 and -100 <= clickY <= -50:
+            dictionaryQ = compileToDictionary("realLifeQ.txt")
+            dictionaryA = compileToDictionary("realLifeA.txt")
+
+    buttonLeft.setFill(colorBack)
+    buttonRight.setFill(colorBack)
+    
+    # Compile dictionary
+
+    clickX = click.getY()
+    clickY = click.getX()
+
 
     
-#    click = getMouse()
 
 
 GUI()
