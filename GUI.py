@@ -14,8 +14,8 @@ from analyzeAnswer import analyzeAnswer
 def GUI():
 
     # Define Window (win)
-    colorBack = (color_rgb(5, 30, 100))
-    colorButton = "goldenrod"
+    colorBack = color_rgb(15, 55, 80)
+    colorButton = color_rgb(220,118,0)
     colorText = "white"
     font = "arial"
     fontSize = 12
@@ -29,13 +29,6 @@ def GUI():
     cover.setFill(colorBack)
     cover.setFill(colorBack)
     cover.setOutline(colorBack)
-
-    # Define Truth Text (truth)
-    truth = Text(Point(0, 0), "")
-    truth.setSize(fontSize)
-    truth.draw(win)
-    truth.setTextColor(colorText)
-    truth.setFace("arial")
 
 
     # Define Left Button (buttonLeft) and corresponding text (textLeft)
@@ -113,6 +106,7 @@ def GUI():
     count = 0
     while True:
         try:
+            cover.undraw()
             count += 1
             question = dictionaryQ[count]  
             message.setText(question)
@@ -128,17 +122,24 @@ def GUI():
             correct = analyzeAnswer(dictionaryA, answerGiven, count)
             
             cover.draw(win)
-            inputBox.undraw(win)
+            inputBox.undraw()
+            truth = Text(Point(0, 0), "")
+            truth.setSize(20)
+            truth.draw(win)
+            truth.setTextColor(colorText)
+            truth.setFace("arial")
 
             if correct == True:
                 print("Correct")
+                truth.setText("CORRECT")
             elif correct == False:
                 print("Incorrect")
-
+                truth.setText("INCORRECT")
+                
+            message.setText("")
             win.getKey()
-            cover.undraw(win)
             
-
+            
         except KeyError:
             break
 
@@ -150,5 +151,7 @@ def GUI():
 
     
 
-
-GUI()
+try:
+    GUI()
+except KeyError:
+    win.close()

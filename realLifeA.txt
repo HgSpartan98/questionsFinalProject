@@ -3,7 +3,7 @@ $descartes$
 $quartz$
 $first flight$
 $titanic$
-$egyptian hieroglyph$egyptian mummification hieroglyph$egyptian mummy$
-$e = mc^2$e = mc^(2)$
-$vaccines$vaccination$immunization$
+$egyptian hieroglyph$
+$e = mc^2$
+$vaccines$
 $ $
