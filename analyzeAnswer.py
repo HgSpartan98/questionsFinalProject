@@ -5,7 +5,7 @@ def analyzeAnswer(dictionaryA, answerGiven, numberQ):
     
 
     
-    answers = dictionaryA[numberQ].split("$")
+    answers = str(dictionaryA[numberQ].split("$"))
 
     if answers[0] == " ":
         return True
@@ -17,7 +17,7 @@ def analyzeAnswer(dictionaryA, answerGiven, numberQ):
             return False
         
     elif len(answers) == 2:
-        answerReal = answers[0] or answers[1]
+        answerReal = str(answers[0]) or str(answers[1])
         
         if str(answerReal) in str(answerGiven):
             return True
@@ -25,7 +25,7 @@ def analyzeAnswer(dictionaryA, answerGiven, numberQ):
             return False
                 
     elif len(answers) == 3:
-        answerReal = answers[0] or answers[1] or answers[2]
+        answerReal = str(answers[0]) or str(answers[1]) or str(answers[2])
         
         if str(answerReal) in str(answerGiven):
             return True
