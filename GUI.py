@@ -6,65 +6,28 @@
 # for certain keywords, and output different text if the keywords match.
 
 from graphics import *
-import ctypes
 import textwrap
 from intro import outputText
 
-# GetTextDimensions copied from StackOverflow
-# https://stackoverflow.com/questions/35771863/how-
-# to-calculate-length-of-string-in-pixels-for-specific-font-and-size
-##def GetTextDimensions(text, points, font):
-##    class SIZE(ctypes.Structure):
-##        _fields_ = [("cx", ctypes.c_long), ("cy", ctypes.c_long)]
-##
-##    hdc = ctypes.windll.user32.GetDC(0)
-##    hfont = ctypes.windll.gdi32.CreateFontA(points, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, font)
-##    hfont_old = ctypes.windll.gdi32.SelectObject(hdc, hfont)
-##
-##    size = SIZE(0, 0)
-##    ctypes.windll.gdi32.GetTextExtentPoint32A(hdc, text, len(text), ctypes.byref(size))
-##
-##    ctypes.windll.gdi32.SelectObject(hdc, hfont_old)
-##    ctypes.windll.gdi32.DeleteObject(hfont)
-##
-##    return (size.cx, size.cy)
-##
-##def generateTextPixelRatio():
-##    GetTextDimensions("", 12, "Times New Roman")
-
-
 def GUI():
 
-#    Build window
-##    user32 = ctypes.windll.user32
-##    screenSizeX = user32.GetSystemMetrics(0)
-##    screenSizeY = user32.GetSystemMetrics(1)
-##    winSizeX = (screenSizeX - (screenSizeX / 10))
-##    winSizeY = (screenSizeY - (screenSizeY / 10))
-##
-##    print(winSizeX)
-    winSizeX = 1000
-    winSizeY = 750
-    win = GraphWin("Memory Test", winSizeX, winSizeY)
+    backColor = (color_rgb(5, 30, 100))
+
+    win = GraphWin("Memory Test", 1000, 750)
+    win.setCoords(-200, -200, 200, 200)
+    rec = Rectangle(Point(-200, -200), Point(200, 200))
+    rec.setFill(color_rgb(5, 30, 100))
+    rec.draw(win)
     color1 = "red"
     color2 = "blue"
-
-    
-##    wrapWidth = (winSizeX - (winSizeX / 100))
-
-#   Intro text
-##    introWrapped = textwrap.wrap(outputText("intro"), wrapWidth)
-##    for i in introWrapped:
-##        print(i)
-          
-    
-    introText = Text(Point((winSizeX / 2), winSizeY / 3), outputText("intro"))
+ 
+    introText = Text(Point(100, 50), outputText("intro"))
     introText.setSize(12)
     introText.draw(win)
 
 
-
 #    buttonLeft = Rectangle(Point(
+
     
 #    click = getMouse()
 
