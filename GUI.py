@@ -6,10 +6,9 @@
 # for certain keywords, and output different text if the keywords match.
 
 from graphics import *
-import textwrap
 from intro import outputText
 from compileDictionary import compileToDictionary
-from test import analyseAnswer
+from analyzeAnswer import analyzeAnswer
 
 
 def GUI():
@@ -80,7 +79,7 @@ def GUI():
             message.setText(outputText("spock"))
             break
         
-        elif -150 <= clickX <= -50 and -100 <= clickY <= -50:
+        elif 50 <= clickX <= 150 and -100 <= clickY <= -50:
             dictionaryQ = compileToDictionary("realLifeQ.txt")
             dictionaryA = compileToDictionary("realLifeA.txt")
             message.setText(outputText("real"))
