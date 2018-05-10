@@ -17,11 +17,25 @@ def GUI():
     colorBack = (color_rgb(5, 30, 100))
     colorButton = "goldenrod"
     colorText = "white"
-    
+    font = "arial"
+    fontSize = 12
 
     win = GraphWin("Memory Test", 1000, 750)
     win.setCoords(-200, -200, 200, 200)
     win.setBackground(colorBack)
+
+    # Define Cover (cover)
+    cover = Rectangle(Point(-200, -200, 200, 200))
+    cover.setFill(colorBack)
+    cover.setFill(colorBack)
+    cover.setOutline(colorBack)
+
+    # Define Truth Text (truth)
+    truth = Text(Point(0, 0), "")
+    truth.setSize(fontSize)
+    truth.draw(win)
+    truth.setTextColor(colorText)
+    truth.setFace("arial")
 
 
     # Define Left Button (buttonLeft) and corresponding text (textLeft)
@@ -31,7 +45,7 @@ def GUI():
     buttonLeft.draw(win)
 
     textLeft = Text(Point(-100, -75), "")
-    textLeft.setSize(12)
+    textLeft.setSize(fontSize)
     textLeft.draw(win)
     textLeft.setTextColor(colorText)
     textLeft.setFace("arial")
@@ -47,7 +61,14 @@ def GUI():
     textRight.setSize(12)
     textRight.draw(win)
     textRight.setTextColor(colorText)
-    textRight.setFace("arial")
+    textRight.setFace(font)
+
+    # Define Input Box (inputBox)
+    inputBox = Entry(Point(0, -50), 40)
+    inputBox.setTextColor(colorText)
+    inputBox.setFace(font)
+    inputBox.setSize(fontSize)
+    inputBox.setFill(colorButton)
 
 
     # Intro Text
@@ -70,8 +91,8 @@ def GUI():
 
     while True:
         click = win.getMouse()
-        clickX = click.getY()
-        clickY = click.getX()
+        clickY = click.getY()
+        clickX = click.getX()
 
         if -150 <= clickX <= -50 and -100 <= clickY <= -50:
             dictionaryQ = compileToDictionary("starTrekQ.txt")
@@ -89,17 +110,35 @@ def GUI():
     buttonRight.setFill(colorBack)
     textRight.setText("")
     textLeft.setText("")
-
+    inputBox.draw(win)
     count = 0
     while True:
         try:
             count += 1
-            message.setText(dictionaryQ[count])
-            win.getMouse()
+            question = dictionaryQ[count]  
+            message.setText(question)
+            
+            while True:
+                key = win.getKey()
+                if key == "Return":
+                    break
+            answerGiven = inputBox.getText()
+            inputBox.setText("")
+
+            correct = analyzeAnswer(dictionaryA, answerGiven, count)
+            
+            cover.draw(win)
+
+            if correct == True:
+                print("Correct")
+            elif correct == False:
+                print("Incorrect")
+            
 
         except KeyError:
             break
-    
+
+    win.close()
     
 
 
