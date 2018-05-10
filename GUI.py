@@ -90,7 +90,15 @@ def GUI():
     textRight.setText("")
     textLeft.setText("")
 
-    
+    count = 0
+    while True:
+        try:
+            count += 1
+            message.setText(dictionaryQ[count])
+            win.getMouse()
+
+        except KeyError:
+            break
     
     
 
