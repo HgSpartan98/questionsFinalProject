@@ -25,7 +25,7 @@ def GUI():
     win.setBackground(colorBack)
 
     # Define Cover (cover)
-    cover = Rectangle(Point(-200, -200, 200, 200))
+    cover = Rectangle(Point(-200, -200), Point(200, 200))
     cover.setFill(colorBack)
     cover.setFill(colorBack)
     cover.setOutline(colorBack)
@@ -110,13 +110,13 @@ def GUI():
     buttonRight.setFill(colorBack)
     textRight.setText("")
     textLeft.setText("")
-    inputBox.draw(win)
     count = 0
     while True:
         try:
             count += 1
             question = dictionaryQ[count]  
             message.setText(question)
+            inputBox.draw(win)
             
             while True:
                 key = win.getKey()
@@ -128,11 +128,15 @@ def GUI():
             correct = analyzeAnswer(dictionaryA, answerGiven, count)
             
             cover.draw(win)
+            inputBox.undraw(win)
 
             if correct == True:
                 print("Correct")
             elif correct == False:
                 print("Incorrect")
+
+            win.getKey()
+            cover.undraw(win)
             
 
         except KeyError:
