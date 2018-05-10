@@ -16,7 +16,8 @@ def outputText(instance):
                    "memory of a previously incapacitated individual. \n " +
                    "If you answer a question incorrectly, you will not " +
                    "be able to go back, but must proceed to the next \n" +
-                   "question. Click anywhere to continue. ")
+                   "question. Click anywhere to continue. \n To enter " +
+                   "your answer, press enter." )
         
         # Text asking them to click the button corresponding to the test
         # they wish to take
@@ -38,7 +39,8 @@ def outputText(instance):
                    "memory of a previously incapacitated individual. " +
                    "If you answer a question incorrectly, you will not " +
                    "be able to go back, but must proceed to the next " +
-                   "question. Click anywhere to continue. ")
+                   "question. Click anywhere to continue.  \n To enter " +
+                   "your answer, press enter." )
 
         # Text shown at the beginning of the Real Life version of the test
     elif instance == 'real':
