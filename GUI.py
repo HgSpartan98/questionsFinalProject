@@ -104,6 +104,7 @@ def GUI():
     textRight.setText("")
     textLeft.setText("")
     count = 0
+    points = 0
     while True:
         try:
             cover.undraw()
@@ -130,19 +131,23 @@ def GUI():
             truth.setFace("arial")
 
             if correct == True:
-                print("Correct")
                 truth.setText("CORRECT")
+                points += 1
             elif correct == False:
-                print("Incorrect")
                 truth.setText("INCORRECT")
-                
+            else:
+                truth.setText("INCORRECT")
+   
             message.setText("")
             win.getKey()
-            
+            truth.setText("")             
             
         except KeyError:
             break
 
+    truth.setText(str(points) + " CORRECT ANSWERS. ")
+    win.getKey()
+
     win.close()
     
 
@@ -151,7 +156,4 @@ def GUI():
 
     
 
-try:
-    GUI()
-except KeyError:
-    win.close()
+GUI()
