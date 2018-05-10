@@ -9,6 +9,7 @@ from graphics import *
 import textwrap
 from intro import outputText
 from compileDictionary import compileToDictionary
+from test import analyseAnswer
 
 
 def GUI():
@@ -59,7 +60,7 @@ def GUI():
     
     click = win.getMouse()
 
-    # Choose Test Screen
+    # Choose Test and Compile Dictionary
     message.setText(outputText("choose"))
 
     buttonLeft.setFill(colorButton)
@@ -70,22 +71,31 @@ def GUI():
 
     while True:
         click = win.getMouse()
+        clickX = click.getY()
+        clickY = click.getX()
 
         if -150 <= clickX <= -50 and -100 <= clickY <= -50:
             dictionaryQ = compileToDictionary("starTrekQ.txt")
             dictionaryA = compileToDictionary("starTrekA.txt")
+            message.setText(outputText("spock"))
+            break
         
         elif -150 <= clickX <= -50 and -100 <= clickY <= -50:
             dictionaryQ = compileToDictionary("realLifeQ.txt")
             dictionaryA = compileToDictionary("realLifeA.txt")
+            message.setText(outputText("real"))
+            break
 
     buttonLeft.setFill(colorBack)
     buttonRight.setFill(colorBack)
-    
-    # Compile dictionary
+    textRight.setText("")
+    textLeft.setText("")
 
-    clickX = click.getY()
-    clickY = click.getX()
+    
+    
+    
+
+
 
 
     
