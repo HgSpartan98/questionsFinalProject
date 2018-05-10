@@ -1,5 +1,5 @@
-$1905$albert einstein$
-$descartes$rene descartes$
+$1905 albert einstein$
+$descartes$
 $quartz$
 $first flight$
 $titanic$
