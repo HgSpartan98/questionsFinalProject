@@ -1,3 +1,4 @@
+
 def analyzeAnswer(dictionaryA, answerGiven, numberQ):
 
 
@@ -8,6 +9,7 @@ def analyzeAnswer(dictionaryA, answerGiven, numberQ):
 
     if answers[0] == " ":
         return True
+    
     elif len(answers) == 1:
         
         if str(answerReal) in str(answerGiven):
@@ -28,6 +30,19 @@ def analyzeAnswer(dictionaryA, answerGiven, numberQ):
         
         if str(answerReal) in str(answerGiven):
             return True
+        else:
+            return False
+
+
+
+    if answers[0] == ' ':
+        return True
+
+    else:
+        # check if the given answer is in the list of acceptable answers
+        if answerGiven in answers:
+            return True
+
         else:
             return False
         

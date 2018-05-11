@@ -10,6 +10,7 @@
 # in a string. It will return a dictionary with each line of the file assigned
 # a number equivalent to its line in the file
 
+
 def main():
     questionList = compileToDictionary("testQuestions.txt")
     

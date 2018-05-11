@@ -46,7 +46,6 @@ def GUI():
     # Define Right Button (buttonRight)
     buttonRight = Rectangle(Point(150, -100), Point(50, -50))
     buttonRight.setFill(colorBack)
-    buttonRight.setFill(colorBack)
     buttonRight.setOutline(colorBack)
     buttonRight.draw(win)
 
@@ -55,6 +54,19 @@ def GUI():
     textRight.draw(win)
     textRight.setTextColor(colorText)
     textRight.setFace(font)
+
+    # Define alternate test file button
+    buttonAlt = Rectangle(Point(-190, -190), Point(-140, -160))
+    buttonAlt.setFill(colorBack)
+    buttonAlt.setOutline(colorBack)
+    buttonAlt.draw(win)
+
+    textAlt = Text(Point(-165, -175), "")
+    textAlt.setSize(12)
+    textAlt.draw(win)
+    textAlt.setTextColor(colorText)
+    textAlt.setFace(font)
+    
 
     # Define Input Box (inputBox)
     inputBox = Entry(Point(0, -50), 40)
@@ -76,9 +88,11 @@ def GUI():
     # Choose Test and Compile Dictionary
     message.setText(outputText("choose"))
 
+    buttonAlt.setFill(colorButton)
     buttonLeft.setFill(colorButton)
     buttonRight.setFill(colorButton)
 
+    textAlt.setText("#")
     textRight.setText("Real Life")
     textLeft.setText("Star Trek")
 
@@ -86,7 +100,7 @@ def GUI():
         click = win.getMouse()
         clickY = click.getY()
         clickX = click.getX()
-
+        alternateFile = False
         if -150 <= clickX <= -50 and -100 <= clickY <= -50:
             dictionaryQ = compileToDictionary("starTrekQ.txt")
             dictionaryA = compileToDictionary("starTrekA.txt")
@@ -98,11 +112,41 @@ def GUI():
             dictionaryA = compileToDictionary("realLifeA.txt")
             message.setText(outputText("real"))
             break
+        elif -190 <= clickX <= -140 and -190 <= clickY <= -160:
+            alternateFile = True
+            break
 
     buttonLeft.setFill(colorBack)
     buttonRight.setFill(colorBack)
+    buttonAlt.setFill(colorBack)
     textRight.setText("")
     textLeft.setText("")
+    textAlt.setText("")
+    try:
+        if alternateFile:
+            inputBox.setText("")
+            inputBox.draw(win)
+            for i in ["question", "answer"]:
+                message.setText("Please enter the name of the alternate " + i +
+                                " file.")
+                while True:
+                    key = win.getKey()
+                    if key == "Return":
+                        break
+                if i == "question":
+                    altQ = inputBox.getText() + ".txt"
+                elif i == "answer":
+                    altA = inputBox.getText() + ".txt"
+                inputBox.setText("")
+            dictionaryQ = compileToDictionary(altQ)
+            dictionaryA = compileToDictionary(altQ)
+        inputBox.undraw()
+        
+    except FileNotFoundError:
+        win.close()
+        GUI()
+        
+            
     count = 0
     points = 0
     while True:
@@ -117,7 +161,7 @@ def GUI():
                 key = win.getKey()
                 if key == "Return":
                     break
-            answerGiven = inputBox.getText()
+            answerGiven = str(inputBox.getText())
             inputBox.setText("")
 
             correct = analyzeAnswer(dictionaryA, answerGiven, count)
@@ -151,9 +195,5 @@ def GUI():
     win.close()
     
 
-
-
-
-    
 
 GUI()
